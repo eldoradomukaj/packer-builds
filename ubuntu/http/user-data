@@ -1,0 +1,30 @@
+#cloud-config
+autoinstall:
+  version: 1
+  locale: en_US
+  keyboard:
+    layout: en
+    variant: us
+#  early-commands:
+#    - systemctl stop ssh
+  network:
+    network:
+      version: 2
+      ethernets:
+        ens192:
+          dhcp4: true
+  storage:
+    layout:
+      name: lvm
+  identity:
+    hostname: packertest
+    username: user
+    password: $1$SaltSalt$kdd0gleUkuXHo2bu/Rza9/
+  packages:
+    - open-vm-tools
+  ssh:
+    install-server: yes
+  user-data:
+    disable_root: false
+  late-commands:
+    - echo 'user ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/user
