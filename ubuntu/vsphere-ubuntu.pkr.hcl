@@ -1,3 +1,9 @@
+################################################
+#                                              #
+#        Ubuntu 20.04 Packer Template          #
+#               For vCenter                    #
+################################################
+
 source "vsphere-iso" "ubuntu" {
     CPUs                       = var.vm_cpu_num
     RAM                        = var.vm_mem_size
@@ -20,7 +26,7 @@ source "vsphere-iso" "ubuntu" {
         disk_thin_provisioned = true
     }
     
-    ## vm SSH info
+    ## Template SSH info
     ssh_password              = var.ssh_password
     ssh_username              = var.ssh_username
     ssh_timeout               = "20m"
@@ -37,7 +43,6 @@ source "vsphere-iso" "ubuntu" {
     iso_url = var.iso_url
     iso_checksum = var.iso_checksum
 
-    #boot_keygroup_interval    = "1000ms"
     boot_wait                 = "5s"
     boot_command              = ["<wait><esc><esc><f6><wait><esc><wait>",
                                 "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",

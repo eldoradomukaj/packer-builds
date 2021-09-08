@@ -1,0 +1,16 @@
+name: Valide packer template
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "main"
+jobs:
+  packer_validate:
+    runs-on: hashicorp/packer:1.7.4
+    steps:
+      - name: Packer validate
+        uses: dawitnida/packer-github-actions/validate@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TEMPLATE_FILE_NAME: ${{ env.TEMPLATE_FILE_NAME }}
