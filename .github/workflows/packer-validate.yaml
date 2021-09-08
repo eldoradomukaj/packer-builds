@@ -7,7 +7,7 @@ on:
       - "main"
 jobs:
   packer_validate:
-    runs-on: hashicorp/packer:1.7.4
+    runs-on: dawitnida/packer-github-actions:v1.0.1
     steps:
       - name: Packer validate
         uses: dawitnida/packer-github-actions/validate@master
