@@ -3,12 +3,13 @@ name: Valide packer template
 on:
   pull_request:
   push:
-    branches:
-      - "main"
+    branches: [main]
 jobs:
   packer_validate:
-    runs-on: dawitnida/packer-github-actions:v1.0.1
+    runs-on: ubuntu-latest
     steps:
+      - name: Install Packer
+        run: apt install packer
       - name: Packer validate
         uses: dawitnida/packer-github-actions/validate@master
         env:
