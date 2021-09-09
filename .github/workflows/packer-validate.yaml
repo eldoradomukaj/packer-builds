@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Packer
-        run: apt install packer
+        run: sudo apt install packer
       - name: Packer validate
         uses: dawitnida/packer-github-actions/validate@master
         env:
