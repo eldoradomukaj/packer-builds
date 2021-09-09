@@ -19,7 +19,7 @@ workflow "Validate Packer Template" {
     on = "push"
 }
 
-action "packer-validate-centos" {
+action "packer-validate-ubuntu" {
     uses = "dawitnida/packer-validate-action@master"
     secrets = [
         "GITHUB_TOKEN",
